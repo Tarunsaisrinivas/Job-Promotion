@@ -37,7 +37,7 @@ const App = () => {
     }
     e.preventDefault();
     try {
-      await axios.post('https://job-promotion.onrender.com/add-new', formData);
+      await axios.post('http://localhost:3000/add-new', formData);
       console.log('Item added successfully');
       setFormData({
         id: '',
@@ -53,7 +53,7 @@ const App = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('https://job-promotion.onrender.com/get-all');
+      const response = await axios.get('http://localhost:3000/get-all');
       setList(response.data.list);
     } catch (error) {
       console.error('Error fetching items:', error);
@@ -62,9 +62,9 @@ const App = () => {
 
   useEffect(() => {
     const filtered = list.filter(item => {
-      const searchTermLower = searchTerm.toLowerCase(); // Convert search term to lowercase
-      const itemIdLower = item.id.toLowerCase(); // Convert item ID to lowercase
-      const itemNameLower = item.name.toLowerCase(); // Convert item name to lowercase
+      const searchTermLower = searchTerm.toLowerCase(); 
+      const itemIdLower = item.id.toLowerCase(); 
+      const itemNameLower = item.name.toLowerCase();
       return itemIdLower.includes(searchTermLower) || itemNameLower.includes(searchTermLower);
     });
     setFilteredItems(filtered);

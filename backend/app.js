@@ -6,7 +6,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["http://localhost:5173","https://job-promotion.netlify.app"],
+    origin: ["http://localhost:5173"],
     methods: ["GET", "PUT", "POST", "DELETE"],
     credentials: true,
   })
