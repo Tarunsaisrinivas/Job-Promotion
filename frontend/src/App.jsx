@@ -37,7 +37,7 @@ const App = () => {
     }
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/add-new', formData);
+      await axios.post('https://job-promotion.onrender.com/add-new', formData);
       console.log('Item added successfully');
       setFormData({
         id: '',
@@ -53,7 +53,7 @@ const App = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/get-all');
+      const response = await axios.get('https://job-promotion.onrender.com/get-all');
       setList(response.data.list);
     } catch (error) {
       console.error('Error fetching items:', error);
